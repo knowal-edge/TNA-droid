@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_margin="@dimen/activity_horizontal_margin"
+    android:layout_height="match_parent"
+   >
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_marginTop="10dp"
+    android:layout_height="wrap_content">
+    <TextView
+        android:layout_width="match_parent"
+        android:textSize="16sp"
+        android:id="@+id/desig"
+        android:layout_margin="@dimen/activity_horizontal_margin"
+        android:textColor="@color/text_color_job"
+        android:layout_height="wrap_content" />
+    <ImageView
+        android:id="@+id/btn_cancel"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_margin="@dimen/activity_horizontal_margin"
+        android:layout_alignParentRight="true"
+        android:textColor="@color/colorPrimary"
+        />
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:id="@+id/sep"
+        android:layout_marginRight="@dimen/activity_horizontal_margin"
+        android:layout_marginLeft="@dimen/activity_horizontal_margin"
+        android:layout_below="@+id/btn_cancel"
+        android:layout_centerHorizontal="true"
+        android:background="@color/text_color_job" />
+
+</RelativeLayout>
+
+
+    <LinearLayout
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:gravity="center_vertical"
+    android:layout_gravity="center"
+    android:layout_height="wrap_content"
+    >
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fillViewport="true"
+        >
+    <RelativeLayout
+        android:layout_width="match_parent"
+      android:layout_margin="@dimen/activity_horizontal_margin"
+        android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/jobdesighead"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/jobidhead"
+                android:textColor="@color/text_color_job"
+                android:textSize="14sp"
+                android:layout_marginBottom="5dp"
+              />
+            <TextView
+                android:id="@+id/jd"
+                android:layout_width="match_parent"
+                android:layout_below="@+id/jobdesighead"
+                android:layout_height="match_parent"
+                android:textColor="@color/job_desc_content"
+                android:textSize="12sp"
+                />
+
+        </RelativeLayout>
+
+</ScrollView>
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_below="@+id/jd"
+        android:background="@color/apply_job_refereal"
+        android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/jobrefereal"
+            android:layout_width="wrap_content"
+            android:layout_marginTop="@dimen/activity_horizontal_margin"
+            android:layout_marginLeft="@dimen/activity_horizontal_margin"
+            android:layout_marginRight="@dimen/activity_horizontal_margin"
+            android:layout_height="wrap_content"
+            android:textColor="@color/job_desc_content"
+            android:textSize="14sp"
+            />
+        <EditText
+            android:layout_width="match_parent"
+            android:id="@+id/refer"
+            android:textSize="12sp"
+          android:layout_marginLeft="@dimen/activity_horizontal_margin"
+            android:layout_marginRight="@dimen/activity_horizontal_margin"
+            android:layout_below="@+id/jobrefereal"
+            android:layout_height="wrap_content" />
+
+        <Button
+            android:id="@+id/btn_submit"
+            android:layout_width="wrap_content"
+            android:layout_height="36dp"
+            android:layout_centerHorizontal="true"
+            android:layout_margin="@dimen/activity_horizontal_margin"
+            android:layout_below="@+id/refer"
+            android:textSize="10sp"
+            android:textStyle="bold"
+            />
+    </RelativeLayout>
+        </LinearLayout>
+
+
+

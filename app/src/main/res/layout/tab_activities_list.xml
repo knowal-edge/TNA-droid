@@ -1,0 +1,163 @@
+<android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    card_view:cardBackgroundColor="@android:color/white"
+    card_view:cardCornerRadius="@dimen/card_corner_radius"
+    card_view:cardElevation="@dimen/card_elevation"
+    app:cardUseCompatPadding="true"
+    app:cardPreventCornerOverlap="false" >
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorAccent"
+        android:baselineAligned="false"
+        android:orientation="horizontal">
+        <!-- LEFT TITLE PART -->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="155dp"
+            android:layout_weight="3"
+            android:background="@color/colorAccent"
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            android:paddingBottom="20dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:paddingTop="20dp">
+
+        <TextView
+            android:id="@+id/leadDays"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:textColor="@color/textWhite"
+            android:textSize="26sp"
+            android:text="23"
+            android:layout_alignParentLeft="true" />
+
+        <TextView
+            android:id="@+id/lastupdate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentStart="true"
+            android:textColor="@color/textWhite"
+            android:textSize="14sp"
+            android:text="lead days"
+            android:layout_alignParentLeft="true" />
+
+        <TextView
+            android:id="@+id/title_date_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@id/lastupdate"
+            android:layout_alignParentStart="true"
+            android:textColor="@android:color/white"
+            android:textSize="12sp"
+            android:layout_alignParentLeft="true" />
+        </RelativeLayout>
+        <!-- RIGHT TITLE PART -->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/textWhite">
+
+            <TextView
+                android:id="@+id/styleNoHead"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Style No.: "
+                android:layout_marginTop="@dimen/activity_horizontal_margin"
+                android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                />
+
+            <TextView
+                android:id="@+id/styleNo"
+                android:layout_toRightOf="@+id/styleNoHead"
+                android:layout_toEndOf="@+id/styleNoHead"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="1242134232235235"
+                android:layout_marginTop="@dimen/activity_horizontal_margin"
+                />
+
+                <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_margin="@dimen/activity_horizontal_margin"
+                    android:background="@drawable/ic_more_horiz_black_24dp"
+            />
+
+            <TextView
+                android:id="@+id/Activityhead"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Activity: "
+                android:layout_below="@+id/styleNoHead"
+                android:layout_marginTop="@dimen/activity_horizontal_margin"
+                android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                />
+
+            <TextView
+                android:layout_toRightOf="@+id/Activityhead"
+                android:layout_toEndOf="@+id/Activityhead"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/styleNo"
+                android:id="@+id/activity"
+                android:text="stitching the blazer"
+                android:layout_marginTop="@dimen/activity_horizontal_margin"
+                />
+
+
+            <TextView
+                android:id="@+id/targetdate"
+                android:layout_below="@+id/targetDateHead"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="11-12-2018"
+                    android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                   />
+
+            <TextView
+                android:id="@+id/orderConfDate"
+                android:layout_below="@+id/orderConfDateHead"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="11-2-2019"
+              android:layout_centerHorizontal="true"
+                android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                />
+
+
+            <TextView
+                android:id="@+id/targetDateHead"
+                android:layout_below="@+id/Activityhead"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Target Date"
+                                android:layout_margin="@dimen/activity_horizontal_margin"
+                />
+
+            <TextView
+                android:id="@+id/orderConfDateHead"
+                android:layout_below="@+id/Activityhead"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="order Conf. Date"
+                android:layout_centerHorizontal="true"
+                android:layout_margin="@dimen/activity_horizontal_margin"
+                />
+
+
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+</android.support.v7.widget.CardView>
