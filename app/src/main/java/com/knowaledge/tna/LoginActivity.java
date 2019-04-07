@@ -55,8 +55,16 @@ public class LoginActivity extends AppCompatActivity {
         submitButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                loginToTimeAndAction();
-            }
+                if (v == submitButton) {
+                    if (usernameEditText.getText().toString().equals("") && passwordEditText.getText().toString().equals("")){
+                        usernameEditText.setError("Username cannot be empty");
+                        passwordEditText.setError("Password cannot be empty");
+                    }
+
+                    else {
+                        loginToTimeAndAction();
+
+                    }}}
         });
 
     }

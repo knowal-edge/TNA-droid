@@ -19,7 +19,7 @@
             android:layout_width="match_parent"
             android:layout_height="155dp"
             android:layout_weight="3"
-            android:background="#2196F3"
+            android:background="@color/button"
             android:gravity="center_horizontal"
             android:orientation="vertical"
             android:paddingBottom="20dp"
@@ -84,15 +84,7 @@
                 android:layout_marginTop="@dimen/activity_horizontal_margin"
                 />
 
-                <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-                    android:id="@+id/menus"
-                    android:layout_alignParentRight="true"
-                    android:layout_alignParentEnd="true"
-                    android:layout_margin="@dimen/activity_horizontal_margin"
-                    android:background="@drawable/ic_more_vert_black_24dp"
-            />
+
 
             <TextView
                 android:id="@+id/Activityhead"
@@ -125,18 +117,7 @@
                     android:layout_marginLeft="@dimen/activity_horizontal_margin"
                    />
 
-            <TextView
-                android:id="@+id/orderConfDate"
-                android:layout_below="@+id/orderConfDateHead"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="11-2-2019"
-                android:layout_marginRight="@dimen/activity_horizontal_margin"
 
-                android:layout_alignParentRight="true"
-                android:layout_alignParentEnd="true"
-
-                />
 
 
             <TextView
@@ -148,16 +129,6 @@
                                 android:layout_margin="@dimen/activity_horizontal_margin"
                 />
 
-            <TextView
-                android:id="@+id/orderConfDateHead"
-                android:layout_below="@+id/Activityhead"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="order Conf. Date"
-               android:layout_alignParentRight="true"
-                android:layout_alignParentEnd="true"
-                android:layout_margin="@dimen/activity_horizontal_margin"
-                />
 
 
 

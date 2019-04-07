@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_margin="@dimen/activity_horizontal_margin"
+    android:layout_height="match_parent"
+    >
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_margin="@dimen/activity_horizontal_margin"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_width="wrap_content"
+            android:textSize="16sp"
+            android:id="@+id/stylenoHead"
+            android:layout_margin="@dimen/activity_horizontal_margin"
+            android:textColor="@color/text_color_job"
+            android:text="Style No.: "
+            android:layout_height="wrap_content" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:textSize="16sp"
+            android:id="@+id/styleno"
+            android:layout_toRightOf="@+id/stylenoHead"
+            android:layout_toEndOf="@+id/stylenoHead"
+            android:text="sdvsvsvsvs"
+            android:layout_marginTop="@dimen/activity_horizontal_margin"
+            android:layout_marginBottom="@dimen/activity_horizontal_margin"
+            android:textColor="@color/text_color_job"
+            android:layout_height="wrap_content" />
+        <ImageView
+            android:id="@+id/btn_cancel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/activity_horizontal_margin"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:background="@drawable/ic_close_black_24dp"
+            />
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:id="@+id/sep"
+            android:layout_marginRight="@dimen/activity_horizontal_margin"
+            android:layout_marginLeft="@dimen/activity_horizontal_margin"
+            android:layout_below="@+id/btn_cancel"
+            android:layout_centerHorizontal="true"
+            android:background="@color/text_color_job" />
+
+    </RelativeLayout>
+
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:gravity="center_vertical"
+        android:layout_gravity="center"
+        android:layout_margin="@dimen/activity_horizontal_margin"
+        android:background="@color/apply_job_refereal"
+        android:layout_height="wrap_content"
+        >
+        <android.support.v4.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fillViewport="true"
+            >
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_margin="@dimen/activity_horizontal_margin"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:textSize="16sp"
+                    android:id="@+id/leaddaysHead"
+                    android:layout_margin="@dimen/activity_horizontal_margin"
+                    android:textColor="@color/text_color_job"
+                    android:text="Lead Days: "
+                    android:layout_height="wrap_content" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:textSize="12sp"
+                    android:id="@+id/leaddays"
+                    android:layout_toRightOf="@+id/leaddaysHead"
+                    android:layout_toEndOf="@+id/leaddaysHead"
+                    android:text="sdvsvsvsvs"
+                    android:layout_marginTop="@dimen/activity_horizontal_margin"
+                    android:layout_marginBottom="@dimen/activity_horizontal_margin"
+                    android:textColor="@color/text_color_job"
+                    android:layout_height="wrap_content" />
+                <TextView
+                android:layout_width="wrap_content"
+                android:textSize="16sp"
+                android:layout_below="@+id/leaddaysHead"
+                android:id="@+id/activityHead"
+                android:layout_margin="@dimen/activity_horizontal_margin"
+                android:textColor="@color/text_color_job"
+                android:text="Activity: "
+                android:layout_height="wrap_content" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:textSize="16sp"
+                    android:id="@+id/activity"
+                    android:layout_toRightOf="@+id/activityHead"
+                    android:layout_toEndOf="@+id/activityHead"
+                    android:text="sdvsvsvsvs"
+                    android:layout_below="@+id/leaddays"
+                    android:layout_marginTop="@dimen/activity_horizontal_margin"
+                    android:layout_marginBottom="@dimen/activity_horizontal_margin"
+                    android:textColor="@color/text_color_job"
+                    android:layout_height="wrap_content" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:textSize="16sp"
+                    android:layout_below="@+id/activityHead"
+                    android:id="@+id/targetdateHead"
+                    android:layout_margin="@dimen/activity_horizontal_margin"
+                    android:textColor="@color/text_color_job"
+                    android:text="Target Date: "
+                    android:layout_height="wrap_content" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:textSize="16sp"
+                    android:id="@+id/targatedate"
+                    android:layout_toRightOf="@+id/targetdateHead"
+                    android:layout_toEndOf="@+id/targetdateHead"
+                    android:text="sdvsvsvsvs"
+                    android:layout_below="@+id/activity"
+                    android:layout_marginTop="@dimen/activity_horizontal_margin"
+                    android:layout_marginBottom="@dimen/activity_horizontal_margin"
+                    android:textColor="@color/text_color_job"
+                    android:layout_height="wrap_content" />
+
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/statussection"
+                    android:layout_below="@+id/targetdateHead"
+                    >
+
+                    <EditText
+                        android:id="@+id/status"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Complete Status"
+                        android:layout_margin="@dimen/activity_horizontal_margin"
+                        android:inputType="text"
+                        android:maxLines="1"
+                        android:singleLine="true"/>
+
+                </android.support.design.widget.TextInputLayout>
+
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/actualdatesec"
+                    android:layout_below="@+id/statussection"
+                    >
+
+                    <EditText
+                        android:id="@+id/actualdate"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Actual Date(dd-mm-yyyy)"
+                        android:inputType="text"
+                        android:maxLines="1"
+                        android:layout_margin="@dimen/activity_horizontal_margin"
+                        android:singleLine="true"/>
+
+                </android.support.design.widget.TextInputLayout>
+
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/revisedDatesec"
+                    android:layout_below="@+id/actualdatesec"
+                    >
+
+                    <EditText
+                        android:id="@+id/reviseddate"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Revised date(dd-mm-yyyy)"
+                        android:inputType="text"
+                        android:layout_margin="@dimen/activity_horizontal_margin"
+                        android:maxLines="1"
+                        android:singleLine="true"/>
+
+                </android.support.design.widget.TextInputLayout>
+
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/reasonsec"
+                    android:layout_below="@+id/revisedDatesec"
+                    >
+
+                    <EditText
+                        android:id="@+id/reason"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Reason"
+                        android:layout_margin="@dimen/activity_horizontal_margin"
+                        android:inputType="text"
+                        android:maxLines="1"
+                        android:singleLine="true"/>
+
+                </android.support.design.widget.TextInputLayout>
+
+                <Button
+                    android:id="@+id/submit"
+                    style="?android:textAppearanceSmall"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/activity_horizontal_margin"
+                    android:text="Submit"
+                    android:layout_centerHorizontal="true"
+                    android:background="@drawable/button_background"
+                    android:textStyle="bold"
+                    android:textColor="@color/textWhite"
+                    android:layout_below="@+id/reasonsec"
+                    />
+
+
+            </RelativeLayout>
+
+        </android.support.v4.widget.NestedScrollView>
+    </LinearLayout>
+
+
+</LinearLayout>
+
+
+

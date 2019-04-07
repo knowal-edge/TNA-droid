@@ -17,7 +17,7 @@ public class ReportFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        rootview = inflater.inflate(R.layout.activity_login, container, false);
+        rootview = inflater.inflate(R.layout.nav_activity_reports, container, false);
         return rootview;
 
     }

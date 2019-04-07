@@ -1,65 +1,130 @@
 package com.knowaledge.tna.TabFragments;
 
 
+import android.app.ProgressDialog;
+import android.content.Intent;
+import android.content.SharedPreferences;
+import android.os.Bundle;
+import android.preference.PreferenceManager;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
+import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
+import com.knowaledge.tna.Adapters.AlertActivitiesAdapter;
+import com.knowaledge.tna.CreateActionActivity;
+import com.knowaledge.tna.CreateActivity;
+import com.knowaledge.tna.Models.AlertActivities;
+import com.knowaledge.tna.R;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+
+import static com.knowaledge.tna.Constants.URLs.SHOWALERTACTIVITY;
+import static java.lang.Integer.parseInt;
 
 
 /**
  * Created by ananth on 10/23/2016.
  */
 public class AlertsTabFragment extends Fragment {
-  /*  private View rootView;
-    private RecyclerView recyclerview;
-    private ViewPager mViewPager;
+    private RecyclerView recyclerView;
+    List<AlertActivities> activityList;
+    AlertActivitiesAdapter adapter;
 
+    View rootview;
+    private Boolean isFabOpen = false;
+    private ProgressDialog mProgressDialog;
 
-    @Nullable
+    private Animation fab_open, fab_close, rotate_forward, rotate_backward;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        rootView = inflater.inflate(R.layout.tab_playground, container, false);
-         mViewPager = (ViewPager) rootView.findViewById(R.id.viewPageAndroid);
-        AndroidImageAdapter adapterView = new AndroidImageAdapter(getActivity());
-        mViewPager.setAdapter(adapterView);
+        rootview = inflater.inflate(R.layout.tab_alert_activities, container, false);
+        recyclerView = (RecyclerView) rootview.findViewById(R.id.card_recycler_view);
+        recyclerView.setHasFixedSize(true);
+        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+        activityList = new ArrayList<>();
+        loadActivities();
+        return rootview;
 
-        recyclerview = (RecyclerView) rootView.findViewById(R.id.recyclerview);
-        recyclerview.setLayoutManager(new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false));
-        List<ExpandableListAdapter.Item> data = new ArrayList<>();
-        data.add(new ExpandableListAdapter.Item(ExpandableListAdapter.HEADER, getString(R.string.head1)));
-        data.add(new ExpandableListAdapter.Item(ExpandableListAdapter.CHILD, getString(R.string.child1)));
-        data.add(new ExpandableListAdapter.Item(ExpandableListAdapter.CHILD, getString(R.string.child2)));
-        data.add(new ExpandableListAdapter.Item(ExpandableListAdapter.CHILD, getString(R.string.child3)));
-        data.add(new ExpandableListAdapter.Item(ExpandableListAdapter.CHILD, getString(R.string.child4)));
-        data.add(new ExpandableListAdapter.Item(ExpandableListAdapter.HEADER, getString(R.string.head2)));
-        data.add(new ExpandableListAdapter.Item(ExpandableListAdapter.CHILD, getString(R.string.child5)));
-        data.add(new ExpandableListAdapter.Item(ExpandableListAdapter.CHILD, getString(R.string.child6)));
-        data.add(new ExpandableListAdapter.Item(ExpandableListAdapter.CHILD, getString(R.string.child7)));
+    }
 
 
-        ExpandableListAdapter.Item places = new ExpandableListAdapter.Item(ExpandableListAdapter.HEADER, getString(R.string.head3));
-        places.invisibleChildren = new ArrayList<>();
-        places.invisibleChildren.add(new ExpandableListAdapter.Item(ExpandableListAdapter.CHILD, getString(R.string.child8)));
-        places.invisibleChildren.add(new ExpandableListAdapter.Item(ExpandableListAdapter.CHILD, getString(R.string.child9)));
-        places.invisibleChildren.add(new ExpandableListAdapter.Item(ExpandableListAdapter.CHILD, getString(R.string.child10)));
-        places.invisibleChildren.add(new ExpandableListAdapter.Item(ExpandableListAdapter.CHILD, getString(R.string.child11)));
-        places.invisibleChildren.add(new ExpandableListAdapter.Item(ExpandableListAdapter.CHILD, getString(R.string.child12)));
-        places.invisibleChildren.add(new ExpandableListAdapter.Item(ExpandableListAdapter.CHILD, getString(R.string.child13)));
-        places.invisibleChildren.add(new ExpandableListAdapter.Item(ExpandableListAdapter.CHILD, getString(R.string.child14)));
-        places.invisibleChildren.add(new ExpandableListAdapter.Item(ExpandableListAdapter.CHILD, getString(R.string.child15)));
-        places.invisibleChildren.add(new ExpandableListAdapter.Item(ExpandableListAdapter.CHILD, getString(R.string.child16)));
-        places.invisibleChildren.add(new ExpandableListAdapter.Item(ExpandableListAdapter.CHILD, getString(R.string.child17)));
-        places.invisibleChildren.add(new ExpandableListAdapter.Item(ExpandableListAdapter.HEADER, getString(R.string.head4)));
-        places.invisibleChildren.add(new ExpandableListAdapter.Item(ExpandableListAdapter.CHILD, getString(R.string.child18)));
-        places.invisibleChildren.add(new ExpandableListAdapter.Item(ExpandableListAdapter.CHILD, getString(R.string.child19)));
-        places.invisibleChildren.add(new ExpandableListAdapter.Item(ExpandableListAdapter.CHILD, getString(R.string.child20)));
-        places.invisibleChildren.add(new ExpandableListAdapter.Item(ExpandableListAdapter.CHILD, getString(R.string.child21)));
-        places.invisibleChildren.add(new ExpandableListAdapter.Item(ExpandableListAdapter.CHILD, getString(R.string.child22)));
-        places.invisibleChildren.add(new ExpandableListAdapter.Item(ExpandableListAdapter.CHILD, getString(R.string.child23)));
+    private void loadActivities() {
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(getActivity());
+        final String username =  preferences.getString("username", "");
 
-        data.add(places);
+        Date date = new Date();
+        SimpleDateFormat formatter = new SimpleDateFormat("dd");
+        int strDate= parseInt(formatter.format(date))-5;
+      System.out.println("wrgere"+ strDate);
+        Date date1 = new Date();
+        SimpleDateFormat formatter1 = new SimpleDateFormat(strDate+"-MM-yyyy");
+        String sDate = formatter1.format(date1);
+        System.out.println("wrgere"+ sDate);
 
-        recyclerview.setAdapter(new ExpandableListAdapter(data));
+        StringRequest stringRequest = new StringRequest(Request.Method.GET, SHOWALERTACTIVITY+username+"/"+sDate,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
 
-        return rootView;
+                        try {
+                            JSONArray jsonArray = new JSONArray(response);
 
-    }*/
+                            for (int i = 0; i < jsonArray.length(); i++) {
+                                JSONObject obj = jsonArray.getJSONObject(i);
+
+                                System.out.println("s-sdfds"+obj);
+
+                                activityList.add(new AlertActivities(
+                                        obj.getString("lead_days"),
+                                        obj.getString("style_no"),
+                                        obj.getString("activity"),
+                                        obj.getString("target_date")
+
+
+                                ));
+
+
+                            }
+
+                            adapter = new AlertActivitiesAdapter(getActivity(), activityList);
+                            recyclerView.setAdapter(adapter);
+
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+
+                    }
+                });
+        RequestQueue requestQueue = Volley.newRequestQueue(getActivity());
+        requestQueue.add(stringRequest);
+    }
+
+
+
 }

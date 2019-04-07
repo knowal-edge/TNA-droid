@@ -20,7 +20,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.knowaledge.tna.NavigationFragments.AboutUsFragment;
 import com.knowaledge.tna.NavigationFragments.ReportFragment;
 import com.knowaledge.tna.TabFragments.TabFragment;
 
@@ -43,7 +42,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         toolbar = (Toolbar) findViewById(R.id.toolbar);
-        toolbar.setTitleTextColor(Color.parseColor("#212121"));
+        toolbar.setTitleTextColor(Color.parseColor("#FFFFFF"));
         setSupportActionBar(toolbar);
         drawerLayout = (DrawerLayout) findViewById(R.id.drawerLayout);
         toggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.open, R.string.close);
@@ -93,10 +92,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 ft1.replace(R.id.frameLayout, new ReportFragment());
                 ft1.commit();
                 break;
-            case R.id.about:
-                FragmentTransaction ft2 = getSupportFragmentManager().beginTransaction();
-                ft2.replace(R.id.frameLayout, new AboutUsFragment());
-                ft2.commit();
+            case R.id.logout:
+                Intent intent = new Intent(Intent.ACTION_MAIN);
+                intent.addCategory(Intent.CATEGORY_HOME);
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intent);
+                this.finish();
                 break;
         }
 

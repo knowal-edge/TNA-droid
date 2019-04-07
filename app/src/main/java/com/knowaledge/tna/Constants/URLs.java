@@ -18,4 +18,8 @@ public class URLs {
 
     public static final String SHOWACTIVITY = " https://time-and-action.herokuapp.com/activity/list/";
 
+    //Display Alert Activity API
+
+    public static final String SHOWALERTACTIVITY = " https://time-and-action.herokuapp.com/activity/alert/list/";
+
 }

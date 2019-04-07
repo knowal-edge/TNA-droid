@@ -50,7 +50,18 @@ public class CreateActivity extends AppCompatActivity {
         submitButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                createActivity();
+                if (v == submitButton) {
+                    if (activityEditText.getText().toString().equals("") && styleNoEditText.getText().toString().equals("") && leadDaysEditText.getText().toString().equals("") && targetDateEditText.getText().toString().equals("")){
+                        activityEditText.setError("Activity cannot be empty");
+                        styleNoEditText.setError("Styleno cannot be empty");
+                        leadDaysEditText.setError("Lead days cannot be empty");
+                        targetDateEditText.setError("Target date cannot be empty");
+
+                    }
+
+                    else {
+                        createActivity();
+                    }}
             }
         });
 

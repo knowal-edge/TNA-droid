@@ -56,7 +56,17 @@ public class RegistrationActivity extends AppCompatActivity {
         submitButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                registerToTimeAndAction();
+                if (v == submitButton) {
+                    if (usernameEditText.getText().toString().equals("") && emailEditText.getText().toString().equals("") && passwordEditText.getText().toString().equals("") && buyerEditText.getText().toString().equals("")){
+                        usernameEditText.setError("Username cannot be empty");
+                        passwordEditText.setError("Password cannot be empty");
+                        emailEditText.setError("Email cannot be empty");
+                        buyerEditText.setError("buyer cannot be empty");
+                    }
+
+                    else {
+                        registerToTimeAndAction();
+                    }}
             }
         });
 

@@ -57,7 +57,20 @@ public class CreateActionActivity extends AppCompatActivity {
         submitButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                createAction();
+                if (v == submitButton) {
+                    if (buyerlEditText.getText().toString().equals("") && styleNoEditText.getText().toString().equals("") && orderRefNoEditText.getText().toString().equals("") && garmentNameEditText.getText().toString().equals("") && leadDaysEditText.getText().toString().equals("") && orderConfDateEditText.getText().toString().equals("") && exFactoryDateEditText.getText().toString().equals("")){
+                        buyerlEditText.setError("Buyer cannot be empty");
+                        styleNoEditText.setError("Styleno cannot be empty");
+                        orderRefNoEditText.setError("Order ref no. cannot be empty");
+                        garmentNameEditText.setError("garment name cannot be empty");
+                        leadDaysEditText.setError("lead days cannot be empty");
+                        orderConfDateEditText.setError("order conf. date cannot be empty");
+                        exFactoryDateEditText.setError("Ex-factory date cannot be empty");
+                    }
+
+                    else {
+                        createAction();
+                    }}
             }
         });
 

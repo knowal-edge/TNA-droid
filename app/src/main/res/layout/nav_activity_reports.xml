@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_margin="@dimen/activity_horizontal_margin"
+    android:background="@color/apply_job_refereal"
+    android:layout_height="match_parent"
+    >
+
+        <android.support.v4.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fillViewport="true"
+            >
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_margin="@dimen/activity_horizontal_margin"
+                android:layout_height="wrap_content">
+
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/statussection"
+                    android:layout_below="@+id/targetdateHead"
+                    >
+
+                    <EditText
+                        android:id="@+id/status"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Style No."
+                        android:layout_margin="@dimen/activity_horizontal_margin"
+                        android:inputType="text"
+                        android:maxLines="1"
+                        android:singleLine="true"/>
+
+                </android.support.design.widget.TextInputLayout>
+
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/actualdatesec"
+                    android:layout_below="@+id/statussection"
+                    >
+
+                    <EditText
+                        android:id="@+id/actualdate"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="From Date(dd-mm-yyyy)"
+                        android:inputType="text"
+                        android:maxLines="1"
+                        android:layout_margin="@dimen/activity_horizontal_margin"
+                        android:singleLine="true"/>
+
+                </android.support.design.widget.TextInputLayout>
+
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/revisedDatesec"
+                    android:layout_below="@+id/actualdatesec"
+                    >
+
+                    <EditText
+                        android:id="@+id/reviseddate"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="To date(dd-mm-yyyy)"
+                        android:inputType="text"
+                        android:layout_margin="@dimen/activity_horizontal_margin"
+                        android:maxLines="1"
+                        android:singleLine="true"/>
+
+                </android.support.design.widget.TextInputLayout>
+
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/reasonsec"
+                    android:layout_below="@+id/revisedDatesec"
+                    >
+
+                    <EditText
+                        android:id="@+id/reason"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Order ref. no."
+                        android:layout_margin="@dimen/activity_horizontal_margin"
+                        android:inputType="text"
+                        android:maxLines="1"
+                        android:singleLine="true"/>
+
+                </android.support.design.widget.TextInputLayout>
+
+                <Button
+                    android:id="@+id/submit"
+                    style="?android:textAppearanceSmall"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/activity_horizontal_margin"
+                    android:text="Submit"
+                    android:layout_centerHorizontal="true"
+                    android:background="@drawable/button_background"
+                    android:textStyle="bold"
+                    android:textColor="@color/textWhite"
+                    android:layout_below="@+id/reasonsec"
+                    />
+
+
+            </RelativeLayout>
+
+        </android.support.v4.widget.NestedScrollView>
+    </LinearLayout>
+
+
+
+

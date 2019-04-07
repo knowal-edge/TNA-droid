@@ -1,6 +1,7 @@
 <android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
+    android:background="@color/textWhite"
     android:layout_height="match_parent">
 
 
@@ -20,10 +21,12 @@
         android:layout_gravity="bottom|end"
         android:layout_marginRight="@dimen/activity_horizontal_margin"
         android:visibility="invisible"
-        app:backgroundTint="@color/colorAccent"
+        app:backgroundTint="@color/button"
         app:elevation="6dp"
+        android:tooltipText="Create Activity"
         app:pressedTranslationZ="12dp"
         android:src="@drawable/ic_library_add_black_24dp" />
+
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/fab1"
         android:layout_width="wrap_content"
@@ -33,7 +36,9 @@
         android:layout_marginRight="@dimen/activity_horizontal_margin"
         android:visibility="invisible"
         app:elevation="6dp"
-        app:backgroundTint="@color/colorAccent"
+
+        android:tooltipText="Create Action"
+        app:backgroundTint="@color/button"
         app:pressedTranslationZ="12dp"
         android:src="@drawable/ic_assignment_black_24dp" />
     <android.support.design.widget.FloatingActionButton
@@ -42,7 +47,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"
         app:elevation="6dp"
-        app:backgroundTint="@color/colorAccent"
+        app:backgroundTint="@color/button"
         app:pressedTranslationZ="12dp"
         android:layout_margin="@dimen/activity_horizontal_margin"
         android:src="@drawable/ic_add_black_24dp" />

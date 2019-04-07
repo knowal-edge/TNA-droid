@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#E0E0E0</color>
-    <color name="colorPrimaryDark">#9E9E9E</color>
-    <color name="colorAccent">#FF6F00</color>
+    <color name="colorPrimary">#616161</color>
+    <color name="colorPrimaryDark">#424242</color>
+    <color name="colorAccent">#FFAB00</color>
     <color name="button">#D32F2F</color>
     <color name="textWhite">#ffffff</color>
     <color name="textBlack">#000000</color>
     <color name="alertCard">#b71c1c</color>
     <color name="cardList">#039be5</color>
     <color name="loginHead">#BDBDBD</color>
-    <color name="Tab_label_no_select">#9E9E9E</color>
-    <color name="Tab_label_select">#212121</color>
-    <color name="Tab_Indicator">#FF6F00</color>
+    <color name="Tab_label_no_select">#E0E0E0</color>
+    <color name="Tab_label_select">#FFFFFF</color>
+    <color name="Tab_Indicator">#FFAB00</color>
     <color name="nav_header_backdrop">#ebecee</color>
     <color name="nav_header_text">#f57b20</color>
     <color name="nav_slide_backdrop">#FFFFFF</color>
@@ -23,7 +23,7 @@
     <color name="seperator">#E0E0E0</color>
     <color name="journey_head">#e51b24</color>
     <color name="journey_val">#717174</color>
-    <color name="tabback">#E0E0E0</color>
+    <color name="tabback">#616161</color>
     <color name="date_time_head">#f57b20</color>
     <color name="playroll">#FFFFFF</color>
     <color name="text_color_job">#e63f2d</color>

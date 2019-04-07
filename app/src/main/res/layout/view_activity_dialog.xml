@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_margin="@dimen/activity_horizontal_margin"
+    android:layout_height="match_parent"
+   >
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_margin="@dimen/activity_horizontal_margin"
+    android:layout_height="wrap_content">
+    <TextView
+        android:layout_width="wrap_content"
+        android:textSize="16sp"
+        android:id="@+id/stylenoHead"
+        android:layout_margin="@dimen/activity_horizontal_margin"
+        android:textColor="@color/text_color_job"
+        android:text="Style No.: "
+        android:layout_height="wrap_content" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:textSize="16sp"
+        android:id="@+id/styleno"
+        android:layout_toRightOf="@+id/stylenoHead"
+        android:layout_toEndOf="@+id/stylenoHead"
+        android:text="sdvsvsvsvs"
+        android:layout_marginTop="@dimen/activity_horizontal_margin"
+        android:layout_marginBottom="@dimen/activity_horizontal_margin"
+        android:textColor="@color/text_color_job"
+        android:layout_height="wrap_content" />
+    <ImageView
+        android:id="@+id/btn_cancel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/activity_horizontal_margin"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:background="@drawable/ic_close_black_24dp"
+        />
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:id="@+id/sep"
+        android:layout_marginRight="@dimen/activity_horizontal_margin"
+        android:layout_marginLeft="@dimen/activity_horizontal_margin"
+        android:layout_below="@+id/btn_cancel"
+        android:layout_centerHorizontal="true"
+        android:background="@color/text_color_job" />
+
+</RelativeLayout>
+
+
+    <LinearLayout
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:gravity="center_vertical"
+    android:layout_gravity="center"
+        android:layout_margin="@dimen/activity_horizontal_margin"
+        android:background="@color/apply_job_refereal"
+    android:layout_height="wrap_content"
+    >
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fillViewport="true"
+        >
+    <RelativeLayout
+        android:layout_width="match_parent"
+      android:layout_margin="@dimen/activity_horizontal_margin"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:textSize="12sp"
+            android:id="@+id/leaddaysHead"
+            android:layout_margin="@dimen/activity_horizontal_margin"
+            android:textColor="@color/text_color_job"
+            android:text="Lead Days: "
+            android:layout_height="wrap_content" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:textSize="12sp"
+            android:id="@+id/leaddays"
+            android:layout_toRightOf="@+id/leaddaysHead"
+            android:layout_toEndOf="@+id/leaddaysHead"
+            android:text="sdvsvsvsvs"
+            android:layout_marginTop="@dimen/activity_horizontal_margin"
+            android:layout_marginBottom="@dimen/activity_horizontal_margin"
+            android:textColor="@color/text_color_job"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:textSize="12sp"
+            android:layout_below="@+id/leaddaysHead"
+            android:id="@+id/activityHead"
+            android:layout_margin="@dimen/activity_horizontal_margin"
+            android:textColor="@color/text_color_job"
+            android:text="Activity: "
+            android:layout_height="wrap_content" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:textSize="12sp"
+            android:id="@+id/activity"
+            android:layout_toRightOf="@+id/activityHead"
+            android:layout_toEndOf="@+id/activityHead"
+            android:text="sdvsvsvsvs"
+            android:layout_below="@+id/leaddays"
+            android:layout_marginTop="@dimen/activity_horizontal_margin"
+            android:layout_marginBottom="@dimen/activity_horizontal_margin"
+            android:textColor="@color/text_color_job"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:textSize="12sp"
+            android:layout_below="@+id/activityHead"
+            android:id="@+id/orderRefNoHead"
+            android:layout_margin="@dimen/activity_horizontal_margin"
+            android:textColor="@color/text_color_job"
+            android:text="Order Ref. no.: "
+            android:layout_height="wrap_content" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:textSize="12sp"
+            android:id="@+id/orderRefNo"
+            android:layout_toRightOf="@+id/orderRefNoHead"
+            android:layout_toEndOf="@+id/orderRefNoHead"
+            android:text="sdvsvsvsvs"
+            android:layout_below="@+id/activity"
+            android:layout_marginTop="@dimen/activity_horizontal_margin"
+            android:layout_marginBottom="@dimen/activity_horizontal_margin"
+            android:textColor="@color/text_color_job"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:textSize="12sp"
+            android:layout_below="@+id/orderRefNoHead"
+            android:id="@+id/buyerHead"
+            android:layout_margin="@dimen/activity_horizontal_margin"
+            android:textColor="@color/text_color_job"
+            android:text="Buyer: "
+            android:layout_height="wrap_content" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:textSize="12sp"
+            android:id="@+id/buyer"
+            android:layout_toRightOf="@+id/buyerHead"
+            android:layout_toEndOf="@+id/buyerHead"
+            android:text="sdvsvsvsvs"
+            android:layout_below="@+id/orderRefNo"
+            android:layout_marginTop="@dimen/activity_horizontal_margin"
+            android:layout_marginBottom="@dimen/activity_horizontal_margin"
+            android:textColor="@color/text_color_job"
+            android:layout_height="wrap_content" />
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:textSize="12sp"
+            android:layout_below="@+id/buyerHead"
+            android:id="@+id/garmentNameHead"
+            android:layout_margin="@dimen/activity_horizontal_margin"
+            android:textColor="@color/text_color_job"
+            android:text="Garment Name: "
+            android:layout_height="wrap_content" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:textSize="12sp"
+            android:id="@+id/garmentName"
+            android:layout_toRightOf="@+id/garmentNameHead"
+            android:layout_toEndOf="@+id/garmentNameHead"
+            android:text="sdvsvsvsvs"
+            android:layout_below="@+id/buyer"
+            android:layout_marginTop="@dimen/activity_horizontal_margin"
+            android:layout_marginBottom="@dimen/activity_horizontal_margin"
+            android:textColor="@color/text_color_job"
+            android:layout_height="wrap_content" />
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:textSize="12sp"
+            android:layout_below="@+id/garmentNameHead"
+            android:id="@+id/exFactoryHead"
+            android:layout_margin="@dimen/activity_horizontal_margin"
+            android:textColor="@color/text_color_job"
+            android:text="Ex-Factory Date: "
+            android:layout_height="wrap_content" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:textSize="12sp"
+            android:id="@+id/exFactoryDate"
+            android:layout_toRightOf="@+id/exFactoryHead"
+            android:layout_toEndOf="@+id/exFactoryHead"
+            android:text="sdvsvsvsvs"
+            android:layout_below="@+id/garmentName"
+            android:layout_marginTop="@dimen/activity_horizontal_margin"
+            android:layout_marginBottom="@dimen/activity_horizontal_margin"
+            android:textColor="@color/text_color_job"
+            android:layout_height="wrap_content" />
+
+
+
+    </RelativeLayout>
+
+</android.support.v4.widget.NestedScrollView>
+    </LinearLayout>
+
+
+        </LinearLayout>
+
+
+

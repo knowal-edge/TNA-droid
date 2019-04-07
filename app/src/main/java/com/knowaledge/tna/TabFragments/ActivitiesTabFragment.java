@@ -23,7 +23,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
-import com.knowaledge.tna.Adapters.ActivityAdapter;
+import com.knowaledge.tna.Adapters.ActivitiesAdapter;
 import com.knowaledge.tna.CreateActionActivity;
 import com.knowaledge.tna.CreateActivity;
 import com.knowaledge.tna.LoginActivity;
@@ -47,7 +47,7 @@ import static com.knowaledge.tna.Constants.URLs.SHOWACTIVITY;
 public class ActivitiesTabFragment extends Fragment implements View.OnClickListener {
     private RecyclerView recyclerView;
     List<Activities> activityList;
-    ActivityAdapter adapter;
+    ActivitiesAdapter adapter;
     View rootview;
     private Boolean isFabOpen = false;
     private ProgressDialog mProgressDialog;
@@ -84,29 +84,32 @@ public class ActivitiesTabFragment extends Fragment implements View.OnClickListe
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
-                        System.out.println("s-sdfds"+response);
+
                         try {
                             JSONArray jsonArray = new JSONArray(response);
 
                             for (int i = 0; i < jsonArray.length(); i++) {
                                 JSONObject obj = jsonArray.getJSONObject(i);
 
-                                Activities activity = new Activities(
-                                        obj.getString("style_no"),
+                                System.out.println("s-sdfds"+obj);
+
+                                activityList.add(new Activities(
                                         obj.getString("lead_days"),
-                                        obj.getString("order_confirmation_date"),
+                                        obj.getString("style_no"),
                                         obj.getString("activity"),
                                         obj.getString("target_date"),
+                                        obj.getString("order_confirmation_date"),
                                         obj.getString("buyer"),
+                                        obj.getString("order_ref_no"),
                                         obj.getString("garment_name"),
-                                        obj.getString("ex_factory_date"),
-                                        obj.getString("order_ref_no")
-                                );
+                                        obj.getString("ex_factory_date")
 
-                                activityList.add(activity);
+                                        ));
+
+
                             }
 
-                            adapter = new ActivityAdapter(getActivity(), activityList);
+                            adapter = new ActivitiesAdapter(getActivity(), activityList);
                             recyclerView.setAdapter(adapter);
 
                         } catch (JSONException e) {
