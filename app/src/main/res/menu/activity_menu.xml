@@ -3,11 +3,11 @@
 
     <item
         android:id="@+id/menu1"
-        android:title="Edit Activity" />
+        android:title="Update" />
 
     <item
         android:id="@+id/menu2"
-        android:title="View Activity" />
+        android:title="View" />
 
 
 

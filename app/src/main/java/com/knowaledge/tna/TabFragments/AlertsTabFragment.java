@@ -100,7 +100,7 @@ public class AlertsTabFragment extends Fragment implements SwipeRefreshLayout.On
 // manipulate date
        // cal.add(Calendar.YEAR, 1);
       //  cal.add(Calendar.MONTH, 1);
-        cal.add(Calendar.DATE, -5);
+        cal.add(Calendar.DATE, +5);
       //  cal.add(Calendar.DAY_OF_MONTH, 1);
 
 // convert calendar to date

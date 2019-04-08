@@ -2,7 +2,7 @@
 <resources>
     <color name="colorPrimary">#616161</color>
     <color name="colorPrimaryDark">#424242</color>
-    <color name="colorAccent">#FFAB00</color>
+    <color name="colorAccent">#D32F2F</color>
     <color name="button">#D32F2F</color>
     <color name="textWhite">#ffffff</color>
     <color name="textBlack">#000000</color>
@@ -11,7 +11,7 @@
     <color name="loginHead">#BDBDBD</color>
     <color name="Tab_label_no_select">#E0E0E0</color>
     <color name="Tab_label_select">#FFFFFF</color>
-    <color name="Tab_Indicator">#FFAB00</color>
+    <color name="Tab_Indicator">#D32F2F</color>
     <color name="nav_header_backdrop">#ebecee</color>
     <color name="nav_header_text">#f57b20</color>
     <color name="nav_slide_backdrop">#FFFFFF</color>

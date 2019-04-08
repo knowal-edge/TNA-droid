@@ -95,30 +95,30 @@
             />
 
             <TextView
-                android:id="@+id/Activityhead"
+                android:id="@+id/Buyerhead"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Activity: "
+                android:text="Buyer: "
                 android:layout_below="@+id/styleNoHead"
                 android:layout_marginTop="@dimen/activity_horizontal_margin"
                 android:layout_marginLeft="@dimen/activity_horizontal_margin"
                 />
 
             <TextView
-                android:layout_toRightOf="@+id/Activityhead"
-                android:layout_toEndOf="@+id/Activityhead"
+                android:layout_toRightOf="@+id/Buyerhead"
+                android:layout_toEndOf="@+id/Buyerhead"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/styleNo"
-                android:id="@+id/activity"
+                android:id="@+id/buyer"
                 android:text="stitching the blazer"
                 android:layout_marginTop="@dimen/activity_horizontal_margin"
                 />
 
 
             <TextView
-                android:id="@+id/targetdate"
-                android:layout_below="@+id/targetDateHead"
+                android:id="@+id/exfactorydate"
+                android:layout_below="@+id/exFactoryHead"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="11-12-2018"
@@ -140,17 +140,17 @@
 
 
             <TextView
-                android:id="@+id/targetDateHead"
-                android:layout_below="@+id/Activityhead"
+                android:id="@+id/exFactoryHead"
+                android:layout_below="@+id/Buyerhead"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Target Date"
+                android:text="EX-Factory Date"
                                 android:layout_margin="@dimen/activity_horizontal_margin"
                 />
 
             <TextView
                 android:id="@+id/orderConfDateHead"
-                android:layout_below="@+id/Activityhead"
+                android:layout_below="@+id/Buyerhead"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="order Conf. Date"

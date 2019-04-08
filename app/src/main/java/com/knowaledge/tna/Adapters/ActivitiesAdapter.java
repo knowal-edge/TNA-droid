@@ -45,8 +45,8 @@ public void onBindViewHolder(final ActivitiesViewHolder holder, final int positi
         final Activities activities = activitiesList.get(position);
         holder.textViewLeadDays.setText(activities.getLeadDays());
         holder.textViewStyleNo.setText(activities.getStyleNo());
-        holder.textViewActivity.setText(activities.getActivity());
-        holder.textViewTargetDate.setText(activities.getTargetDate());
+        holder.textViewBuyer.setText(activities.getBuyer());
+        holder.textViewExfactoryDate.setText(activities.getEx_factory_date());
         holder.textViewOrderConfDateDate.setText(activities.getOrderConfirmationDate());
 
     holder.menuIcon.setOnClickListener(new View.OnClickListener() {
@@ -128,7 +128,7 @@ public int getItemCount() {
 
 class ActivitiesViewHolder extends RecyclerView.ViewHolder {
 
-    TextView textViewLeadDays, textViewStyleNo, textViewActivity, textViewTargetDate,textViewOrderConfDateDate;
+    TextView textViewLeadDays, textViewStyleNo, textViewBuyer, textViewExfactoryDate,textViewOrderConfDateDate;
 
     ImageView menuIcon;
 
@@ -138,8 +138,8 @@ class ActivitiesViewHolder extends RecyclerView.ViewHolder {
 
         textViewLeadDays = itemView.findViewById(R.id.leadDays);
         textViewStyleNo = itemView.findViewById(R.id.styleNo);
-        textViewActivity = itemView.findViewById(R.id.activity);
-        textViewTargetDate = itemView.findViewById(R.id.targetdate);
+        textViewBuyer = itemView.findViewById(R.id.buyer);
+        textViewExfactoryDate = itemView.findViewById(R.id.exfactorydate);
         textViewOrderConfDateDate = itemView.findViewById(R.id.orderConfDate);
         menuIcon = itemView.findViewById(R.id.menus);
     }

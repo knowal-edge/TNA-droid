@@ -1,19 +1,17 @@
 package com.knowaledge.tna;
 
 import android.app.ProgressDialog;
-import android.content.Intent;
 import android.content.SharedPreferences;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
-import android.view.WindowManager;
-import android.widget.Button;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.EditText;
-import android.widget.TextView;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.android.volley.Request;
@@ -28,12 +26,15 @@ import java.util.Map;
 
 import static com.knowaledge.tna.Constants.URLs.CREATEACTION;
 
-public class CreateActionActivity extends AppCompatActivity {
+public class CreateActionActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
     EditText buyerlEditText,styleNoEditText,orderRefNoEditText,garmentNameEditText,leadDaysEditText,orderConfDateEditText,exFactoryDateEditText;
     private FloatingActionButton submitButton;
     ProgressDialog loading;
     private Toolbar toolbar;
+    Spinner spinner_keymanagement;
+    String[] days = { "30", "45", "60", "90", "100","121","132","141","160","180","227"};
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,8 +46,14 @@ public class CreateActionActivity extends AppCompatActivity {
         styleNoEditText = findViewById(R.id.styleNo);
         orderRefNoEditText = findViewById(R.id.orderRefNo);
         garmentNameEditText = findViewById(R.id.garmentName);
+        Spinner spin = (Spinner) findViewById(R.id.leaddays);
+        spin.setOnItemSelectedListener(this);
 
-        leadDaysEditText = findViewById(R.id.leadDays);
+        /* Creating the ArrayAdapter instance having the country list */
+        ArrayAdapter<String> aa = new ArrayAdapter<>(this,android.R.layout.simple_spinner_item,days);
+        aa.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        //Setting the ArrayAdapter data on the Spinner
+        spin.setAdapter(aa);
 
         orderConfDateEditText = findViewById(R.id.orderConfirmationDate);
 
@@ -138,6 +145,15 @@ public class CreateActionActivity extends AppCompatActivity {
 
         RequestQueue requestQueue = Volley.newRequestQueue(this);
         requestQueue.add(stringRequest);
+    }
+
+    @Override
+    public void onItemSelected(AdapterView<?> arg0, View arg1, int position, long id) {
+        Toast.makeText(getApplicationContext(),days[position] , Toast.LENGTH_LONG).show();
+    }
+    @Override
+    public void onNothingSelected(AdapterView<?> arg0) {
+        // TODO Auto-generated method stub
     }
 }
 

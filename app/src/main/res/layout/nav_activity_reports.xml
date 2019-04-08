@@ -19,8 +19,8 @@
                 <android.support.design.widget.TextInputLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:id="@+id/statussection"
-                    android:layout_below="@+id/targetdateHead"
+                    android:id="@+id/stylenoHead"
+
                     >
 
                     <EditText
@@ -38,8 +38,47 @@
                 <android.support.design.widget.TextInputLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:id="@+id/actualdatesec"
-                    android:layout_below="@+id/statussection"
+                    android:id="@+id/usernameHead"
+                    android:layout_below="@+id/stylenoHead"
+                    >
+
+                    <EditText
+                        android:id="@+id/username"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Username"
+                        android:inputType="text"
+                        android:maxLines="1"
+                        android:layout_margin="@dimen/activity_horizontal_margin"
+                        android:singleLine="true"/>
+
+                </android.support.design.widget.TextInputLayout>
+
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/buyerHead"
+                    android:layout_below="@+id/usernameHead"
+                    >
+
+                    <EditText
+                        android:id="@+id/buyer"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Buyer"
+                        android:inputType="text"
+                        android:maxLines="1"
+                        android:layout_margin="@dimen/activity_horizontal_margin"
+                        android:singleLine="true"/>
+
+                </android.support.design.widget.TextInputLayout>
+
+
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/emailHead"
+                    android:layout_below="@+id/buyerHead"
                     >
 
                     <EditText
@@ -56,8 +95,6 @@
 
 
 
-
-
                 <Button
                     android:id="@+id/submit"
                     style="?android:textAppearanceSmall"
@@ -69,7 +106,7 @@
                     android:background="@drawable/button_background"
                     android:textStyle="bold"
                     android:textColor="@color/textWhite"
-                    android:layout_below="@+id/actualdatesec"
+                    android:layout_below="@+id/emailHead"
                     />
 
 

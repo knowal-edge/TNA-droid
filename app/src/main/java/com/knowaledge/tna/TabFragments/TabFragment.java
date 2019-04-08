@@ -71,7 +71,7 @@ public class TabFragment extends Fragment {
 
             switch (position) {
                 case 0:
-                    return "Activities";
+                    return "Orders";
                 case 1:
                     return "Alerts";
             }
