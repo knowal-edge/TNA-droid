@@ -3,7 +3,6 @@
     android:layout_width="match_parent"
     android:orientation="vertical"
     android:layout_margin="@dimen/activity_horizontal_margin"
-    android:background="@color/apply_job_refereal"
     android:layout_height="match_parent"
     >
 
@@ -25,7 +24,7 @@
                     >
 
                     <EditText
-                        android:id="@+id/status"
+                        android:id="@+id/styleno"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="Style No."
@@ -44,59 +43,25 @@
                     >
 
                     <EditText
-                        android:id="@+id/actualdate"
+                        android:id="@+id/email"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="From Date(dd-mm-yyyy)"
-                        android:inputType="text"
+                        android:hint="Email"
+                        android:inputType="textEmailAddress"
                         android:maxLines="1"
                         android:layout_margin="@dimen/activity_horizontal_margin"
                         android:singleLine="true"/>
 
                 </android.support.design.widget.TextInputLayout>
 
-                <android.support.design.widget.TextInputLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/revisedDatesec"
-                    android:layout_below="@+id/actualdatesec"
-                    >
 
-                    <EditText
-                        android:id="@+id/reviseddate"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:hint="To date(dd-mm-yyyy)"
-                        android:inputType="text"
-                        android:layout_margin="@dimen/activity_horizontal_margin"
-                        android:maxLines="1"
-                        android:singleLine="true"/>
 
-                </android.support.design.widget.TextInputLayout>
 
-                <android.support.design.widget.TextInputLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/reasonsec"
-                    android:layout_below="@+id/revisedDatesec"
-                    >
-
-                    <EditText
-                        android:id="@+id/reason"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:hint="Order ref. no."
-                        android:layout_margin="@dimen/activity_horizontal_margin"
-                        android:inputType="text"
-                        android:maxLines="1"
-                        android:singleLine="true"/>
-
-                </android.support.design.widget.TextInputLayout>
 
                 <Button
                     android:id="@+id/submit"
                     style="?android:textAppearanceSmall"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="@dimen/activity_horizontal_margin"
                     android:text="Submit"
@@ -104,7 +69,7 @@
                     android:background="@drawable/button_background"
                     android:textStyle="bold"
                     android:textColor="@color/textWhite"
-                    android:layout_below="@+id/reasonsec"
+                    android:layout_below="@+id/actualdatesec"
                     />
 
 

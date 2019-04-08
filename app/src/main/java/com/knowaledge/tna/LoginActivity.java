@@ -4,6 +4,7 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
@@ -32,6 +33,7 @@ public class LoginActivity extends AppCompatActivity {
     EditText usernameEditText,passwordEditText;
     TextView mRegiterpageScreen;
     private Button submitButton;
+    int k=0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -106,6 +108,21 @@ public class LoginActivity extends AppCompatActivity {
 
         RequestQueue requestQueue = Volley.newRequestQueue(this);
         requestQueue.add(stringRequest);
+    }
+
+    @Override
+    public void onBackPressed() {
+        Log.e("My Tags", "onBackPressed");
+        k++;
+        if (k == 1) {
+            Toast.makeText(this, "Please press again to exit", Toast.LENGTH_SHORT).show();
+        } else {
+            Intent intent = new Intent(Intent.ACTION_MAIN);
+            intent.addCategory(Intent.CATEGORY_HOME);
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            startActivity(intent);
+            this.finish();
+        }
     }
 }
 
