@@ -16,10 +16,14 @@ public class URLs {
 
     //Display Activity API
 
-    public static final String SHOWACTIVITY = " https://time-and-action.herokuapp.com/activity/list/";
+    public static final String SHOWACTIVITY = "https://time-and-action.herokuapp.com/activity/list/";
 
     //Display Alert Activity API
 
-    public static final String SHOWALERTACTIVITY = " https://time-and-action.herokuapp.com/activity/alert/list/";
+    public static final String SHOWALERTACTIVITY = "https://time-and-action.herokuapp.com/activity/alert/list/";
+
+    //Generate Report Activity API
+
+    public static final String REPORTACTIVITY = "https://time-and-action.herokuapp.com/activity/report/";
 
 }

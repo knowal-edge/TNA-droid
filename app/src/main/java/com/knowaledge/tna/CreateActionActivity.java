@@ -95,6 +95,13 @@ public class CreateActionActivity extends AppCompatActivity {
                     @Override
                     public void onResponse(String response) {
                         loading.dismiss();
+                        buyerlEditText.setText("");
+                        styleNoEditText.setText("");
+                        orderRefNoEditText.setText("");
+                        garmentNameEditText.setText("");
+                        leadDaysEditText.setText("");
+                        orderConfDateEditText.setText("");
+                        exFactoryDateEditText.setText("");
                         Toast.makeText(getApplicationContext(), "Action Created Successfully", Toast.LENGTH_LONG).show();
                     }
                 },
@@ -102,6 +109,13 @@ public class CreateActionActivity extends AppCompatActivity {
                     @Override
                     public void onErrorResponse(VolleyError error) {
                         loading.dismiss();
+                        buyerlEditText.setText("");
+                        styleNoEditText.setText("");
+                        orderRefNoEditText.setText("");
+                        garmentNameEditText.setText("");
+                        leadDaysEditText.setText("");
+                        orderConfDateEditText.setText("");
+                        exFactoryDateEditText.setText("");
                         Toast.makeText(getApplicationContext(), "Error With creation of Action", Toast.LENGTH_LONG).show();
 
                     }

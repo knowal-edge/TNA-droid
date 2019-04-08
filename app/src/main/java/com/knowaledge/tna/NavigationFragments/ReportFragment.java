@@ -27,6 +27,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import static com.knowaledge.tna.Constants.URLs.CREATEACTIVITY;
+import static com.knowaledge.tna.Constants.URLs.REPORTACTIVITY;
 
 public class ReportFragment extends Fragment {
     private View rootview;
@@ -60,47 +61,34 @@ public class ReportFragment extends Fragment {
 
     }
     private void generateReport() {
-        loading = ProgressDialog.show(getActivity(), "Please wait...", "Loading...", false, false);
-
-        final String styleNo = styleNoEditText.getText().toString().trim() ;
-        final String email = emailEditText.getText().toString().trim();
+            loading = ProgressDialog.show(getActivity(), "Please wait...", "Loading...", false, false);
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(getActivity());
         final String username =  preferences.getString("username", "");
-        System.out.println("--sdfdsds"+username);
+        final String styleNo = styleNoEditText.getText().toString().trim() ;
+        final String email = emailEditText.getText().toString().trim();
+        String url = REPORTACTIVITY +username+"/"+styleNo+"/"+email ;
+            StringRequest stringRequest = new StringRequest(url, new Response.Listener<String>() {
+                @Override
+                public void onResponse(String response) {
+                    loading.dismiss();
+                    emailEditText.setText("");
+                    styleNoEditText.setText("");
+              Toast.makeText(getActivity(), "Report sent to your mail", Toast.LENGTH_LONG).show();
+//
+                }
+            },
+                    new Response.ErrorListener() {
+                        @Override
+                        public void onErrorResponse(VolleyError error) {
+                            Toast.makeText(getActivity(), "Check the internet connection and try again", Toast.LENGTH_LONG).show();
+                            loading.dismiss();
+                            emailEditText.setText("");
+                            styleNoEditText.setText("");
 
-        StringRequest stringRequest = new StringRequest(Request.Method.POST,CREATEACTIVITY+username+"/"+styleNo+"/"+email,
-                new Response.Listener<String>() {
-                    @Override
-                    public void onResponse(String response) {
-                        loading.dismiss();
+                        }
+                    });
 
-                        styleNoEditText.setText("");
-
-                        Toast.makeText(getActivity(), "Activity Created Successfully", Toast.LENGTH_LONG).show();
-                    }
-                },
-                new Response.ErrorListener() {
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
-                        loading.dismiss();
-                        emailEditText.setText("");
-                        styleNoEditText.setText("");
-                        Toast.makeText(getActivity(), "Error With creation of activity", Toast.LENGTH_LONG).show();
-
-                    }
-                }) {
-            @Override
-            protected Map<String, String> getParams() {
-                Map<String, String> params = new HashMap<String, String>();
-                params.put("username", username);
-                params.put("style_no", styleNo);
-                params.put("email", email);
-                return params;
-            }
-
-        };
-
-        RequestQueue requestQueue = Volley.newRequestQueue(getActivity());
-        requestQueue.add(stringRequest);
+            RequestQueue requestQueue = Volley.newRequestQueue(getActivity());
+            requestQueue.add(stringRequest);
+        }
     }
-}
