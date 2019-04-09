@@ -28,10 +28,11 @@ import static com.knowaledge.tna.Constants.URLs.CREATEACTION;
 
 public class CreateActionActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
-    EditText buyerlEditText,styleNoEditText,orderRefNoEditText,garmentNameEditText,leadDaysEditText,orderConfDateEditText,exFactoryDateEditText;
+    EditText buyerlEditText,styleNoEditText,orderRefNoEditText,garmentNameEditText,orderConfDateEditText,exFactoryDateEditText;
     private FloatingActionButton submitButton;
     ProgressDialog loading;
     private Toolbar toolbar;
+    public String lead_days;
     Spinner spinner_keymanagement;
     String[] days = { "30", "45", "60", "90", "100","121","132","141","160","180","227"};
 
@@ -65,12 +66,11 @@ public class CreateActionActivity extends AppCompatActivity implements AdapterVi
             @Override
             public void onClick(View v) {
                 if (v == submitButton) {
-                    if (buyerlEditText.getText().toString().equals("") && styleNoEditText.getText().toString().equals("") && orderRefNoEditText.getText().toString().equals("") && garmentNameEditText.getText().toString().equals("") && leadDaysEditText.getText().toString().equals("") && orderConfDateEditText.getText().toString().equals("") && exFactoryDateEditText.getText().toString().equals("")){
+                    if (buyerlEditText.getText().toString().equals("") && styleNoEditText.getText().toString().equals("") && orderRefNoEditText.getText().toString().equals("") && garmentNameEditText.getText().toString().equals("") && orderConfDateEditText.getText().toString().equals("") && exFactoryDateEditText.getText().toString().equals("")){
                         buyerlEditText.setError("Buyer cannot be empty");
                         styleNoEditText.setError("Styleno cannot be empty");
                         orderRefNoEditText.setError("Order ref no. cannot be empty");
                         garmentNameEditText.setError("garment name cannot be empty");
-                        leadDaysEditText.setError("lead days cannot be empty");
                         orderConfDateEditText.setError("order conf. date cannot be empty");
                         exFactoryDateEditText.setError("Ex-factory date cannot be empty");
                     }
@@ -90,7 +90,7 @@ public class CreateActionActivity extends AppCompatActivity implements AdapterVi
         final String styleNo = styleNoEditText.getText().toString().trim() ;
         final String orderRefNo = orderRefNoEditText.getText().toString().trim();
         final String garmentName = garmentNameEditText.getText().toString().trim();
-        final String leadDays = leadDaysEditText.getText().toString().trim();
+        final String leadDays = lead_days.trim();
         final String orderConfDate = orderConfDateEditText.getText().toString().trim();
         final String exFactoryDate = exFactoryDateEditText.getText().toString().trim();
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
@@ -106,7 +106,6 @@ public class CreateActionActivity extends AppCompatActivity implements AdapterVi
                         styleNoEditText.setText("");
                         orderRefNoEditText.setText("");
                         garmentNameEditText.setText("");
-                        leadDaysEditText.setText("");
                         orderConfDateEditText.setText("");
                         exFactoryDateEditText.setText("");
                         Toast.makeText(getApplicationContext(), "Action Created Successfully", Toast.LENGTH_LONG).show();
@@ -120,7 +119,6 @@ public class CreateActionActivity extends AppCompatActivity implements AdapterVi
                         styleNoEditText.setText("");
                         orderRefNoEditText.setText("");
                         garmentNameEditText.setText("");
-                        leadDaysEditText.setText("");
                         orderConfDateEditText.setText("");
                         exFactoryDateEditText.setText("");
                         Toast.makeText(getApplicationContext(), "Error With creation of Action", Toast.LENGTH_LONG).show();
@@ -149,6 +147,7 @@ public class CreateActionActivity extends AppCompatActivity implements AdapterVi
 
     @Override
     public void onItemSelected(AdapterView<?> arg0, View arg1, int position, long id) {
+        lead_days = days[position].toString();
         Toast.makeText(getApplicationContext(),days[position] , Toast.LENGTH_LONG).show();
     }
     @Override

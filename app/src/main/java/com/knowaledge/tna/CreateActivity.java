@@ -8,8 +8,11 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.android.volley.Request;
@@ -25,12 +28,15 @@ import java.util.Map;
 import static com.knowaledge.tna.Constants.URLs.CREATEACTION;
 import static com.knowaledge.tna.Constants.URLs.CREATEACTIVITY;
 
-public class CreateActivity extends AppCompatActivity {
+public class CreateActivity extends AppCompatActivity  implements AdapterView.OnItemSelectedListener {
 
-    EditText styleNoEditText,activityEditText,leadDaysEditText,targetDateEditText;
+    EditText styleNoEditText,activityEditText,targetDateEditText;
     private FloatingActionButton submitButton;
     ProgressDialog loading;
     private Toolbar toolbar;
+    public String lead_days;
+    String[] days = { "30", "45", "60", "90", "100","121","132","141","160","180","227"};
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,9 +46,16 @@ public class CreateActivity extends AppCompatActivity {
         setContentView(R.layout.activity_activties_creation);
         activityEditText = findViewById(R.id.activity);
         styleNoEditText = findViewById(R.id.styleNo);
-        leadDaysEditText = findViewById(R.id.leaddays);
 
         targetDateEditText = findViewById(R.id.targetDate);
+        Spinner spin = (Spinner) findViewById(R.id.leaddays);
+        spin.setOnItemSelectedListener(this);
+
+        /* Creating the ArrayAdapter instance having the country list */
+        ArrayAdapter<String> aa = new ArrayAdapter<>(this,android.R.layout.simple_spinner_item,days);
+        aa.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        //Setting the ArrayAdapter data on the Spinner
+        spin.setAdapter(aa);
 
         submitButton = findViewById(R.id.fab);
 
@@ -51,10 +64,8 @@ public class CreateActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (v == submitButton) {
-                    if (activityEditText.getText().toString().equals("") && styleNoEditText.getText().toString().equals("") && leadDaysEditText.getText().toString().equals("") && targetDateEditText.getText().toString().equals("")){
+                    if (activityEditText.getText().toString().equals("") && styleNoEditText.getText().toString().equals("")  && targetDateEditText.getText().toString().equals("")){
                         activityEditText.setError("Activity cannot be empty");
-                        styleNoEditText.setError("Styleno cannot be empty");
-                        leadDaysEditText.setError("Lead days cannot be empty");
                         targetDateEditText.setError("Target date cannot be empty");
 
                     }
@@ -71,9 +82,8 @@ public class CreateActivity extends AppCompatActivity {
         loading = ProgressDialog.show(this, "Please wait...", "Loading...", false, false);
 
         final String Activity = activityEditText.getText().toString().trim() ;
-        final String styleNo = styleNoEditText.getText().toString().trim() ;
         final String targetDate = targetDateEditText.getText().toString().trim();
-        final String leadDays = leadDaysEditText.getText().toString().trim();
+        final String leadDays = lead_days.trim();
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
         final String username =  preferences.getString("username", "");
         System.out.println("--sdfdsds"+username);
@@ -84,8 +94,6 @@ public class CreateActivity extends AppCompatActivity {
                     public void onResponse(String response) {
                         loading.dismiss();
                         activityEditText.setText("");
-                        styleNoEditText.setText("");
-                        leadDaysEditText.setText("");
                         targetDateEditText.setText("");
                         Toast.makeText(getApplicationContext(), "Activity Created Successfully", Toast.LENGTH_LONG).show();
                     }
@@ -95,8 +103,6 @@ public class CreateActivity extends AppCompatActivity {
                     public void onErrorResponse(VolleyError error) {
                         loading.dismiss();
                         activityEditText.setText("");
-                        styleNoEditText.setText("");
-                        leadDaysEditText.setText("");
                         targetDateEditText.setText("");
                         Toast.makeText(getApplicationContext(), "Error With creation of activity", Toast.LENGTH_LONG).show();
 
@@ -106,7 +112,6 @@ public class CreateActivity extends AppCompatActivity {
             protected Map<String, String> getParams() {
                 Map<String, String> params = new HashMap<String, String>();
                 params.put("username", username);
-                params.put("style_no", styleNo);
                 params.put("activity", Activity);
                 params.put("lead_days", leadDays);
                 params.put("target_date", targetDate);
@@ -118,5 +123,16 @@ public class CreateActivity extends AppCompatActivity {
         RequestQueue requestQueue = Volley.newRequestQueue(this);
         requestQueue.add(stringRequest);
     }
+    @Override
+    public void onItemSelected(AdapterView<?> arg0, View arg1, int position, long id) {
+        lead_days = days[position].toString();
+        Toast.makeText(getApplicationContext(),days[position] , Toast.LENGTH_LONG).show();
+
+    }
+    @Override
+    public void onNothingSelected(AdapterView<?> arg0) {
+        // TODO Auto-generated method stub
+    }
+
 }
 
