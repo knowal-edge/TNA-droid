@@ -124,14 +124,11 @@ public class ActivitiesTabFragment extends Fragment implements SwipeRefreshLayou
                                 activityList.add(new Activities(
                                         obj.getString("lead_days"),
                                         obj.getString("style_no"),
-                                        obj.getString("activity"),
-                                        obj.getString("target_date"),
                                         obj.getString("order_confirmation_date"),
                                         obj.getString("buyer"),
                                         obj.getString("order_ref_no"),
                                         obj.getString("garment_name"),
                                         obj.getString("ex_factory_date")
-
                                         ));
 
 
