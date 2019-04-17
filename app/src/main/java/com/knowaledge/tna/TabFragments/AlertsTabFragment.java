@@ -119,14 +119,15 @@ public class AlertsTabFragment extends Fragment implements SwipeRefreshLayout.On
                             for (int i = 0; i < jsonArray.length(); i++) {
                                 JSONObject obj = jsonArray.getJSONObject(i);
 
-                                System.out.println("s-sdfds"+obj);
 
                                 activityList.add(new AlertActivities(
                                         obj.getString("lead_days"),
                                         obj.getString("style_no"),
-                                        obj.getString("activity"),
-                                        obj.getString("target_date")
-
+                                        obj.getString("order_confirmation_date"),
+                                        obj.getString("buyer"),
+                                        obj.getString("order_ref_no"),
+                                        obj.getString("garment_name"),
+                                        obj.getString("ex_factory_date")
 
                                 ));
 

@@ -105,7 +105,7 @@ public class ActivitiesTabFragment extends Fragment implements SwipeRefreshLayou
                             for (int i = 0; i < jsonArray.length(); i++) {
                                 JSONObject obj = jsonArray.getJSONObject(i);
 
-                                System.out.println("s-sdfds"+obj);
+
 
                                 activityList.add(new Activities(
                                         obj.getString("lead_days"),

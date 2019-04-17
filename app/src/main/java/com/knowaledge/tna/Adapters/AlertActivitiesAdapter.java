@@ -44,10 +44,11 @@ public ActivitiesViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
 @Override
 public void onBindViewHolder(final ActivitiesViewHolder holder, final int position) {
         final AlertActivities activities = activitiesList.get(position);
-        holder.textViewLeadDays.setText(activities.getLeadDays());
-        holder.textViewStyleNo.setText(activities.getStyleNo());
-        holder.textViewActivity.setText(activities.getActivity());
-        holder.textViewTargetDate.setText(activities.getTargetDate());
+    holder.textViewLeadDays.setText(activities.getLeadDays());
+    holder.textViewStyleNo.setText(activities.getStyleNo());
+    holder.textViewBuyer.setText(activities.getBuyer());
+    holder.textViewExfactoryDate.setText(activities.getExFactoryDate());
+    holder.textViewOrderConfDateDate.setText(activities.getOrderConfirmationDate());
 
         }
 
@@ -60,17 +61,18 @@ public int getItemCount() {
 
 class ActivitiesViewHolder extends RecyclerView.ViewHolder {
 
-    TextView textViewLeadDays, textViewStyleNo, textViewActivity, textViewTargetDate;
-
-
+    TextView textViewLeadDays, textViewStyleNo, textViewBuyer, textViewExfactoryDate,textViewOrderConfDateDate;
+    ImageView warningIcon;
 
     public ActivitiesViewHolder(View itemView) {
         super(itemView);
 
         textViewLeadDays = itemView.findViewById(R.id.leadDays);
         textViewStyleNo = itemView.findViewById(R.id.styleNo);
-        textViewActivity = itemView.findViewById(R.id.activity);
-        textViewTargetDate = itemView.findViewById(R.id.targetdate);
+        textViewBuyer = itemView.findViewById(R.id.buyer);
+        textViewExfactoryDate = itemView.findViewById(R.id.exfactorydate);
+        textViewOrderConfDateDate = itemView.findViewById(R.id.orderConfDate);
+        warningIcon = itemView.findViewById(R.id.warning);
     }
 }
 }
