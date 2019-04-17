@@ -54,31 +54,13 @@
 
                 </android.support.design.widget.TextInputLayout>
 
-                <android.support.design.widget.TextInputLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/buyerHead"
-                    android:layout_below="@+id/usernameHead"
-                    >
-
-                    <EditText
-                        android:id="@+id/buyer"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:hint="Buyer"
-                        android:inputType="text"
-                        android:maxLines="1"
-                        android:layout_margin="@dimen/activity_horizontal_margin"
-                        android:singleLine="true"/>
-
-                </android.support.design.widget.TextInputLayout>
 
 
                 <android.support.design.widget.TextInputLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:id="@+id/emailHead"
-                    android:layout_below="@+id/buyerHead"
+                    android:layout_below="@+id/usernameHead"
                     >
 
                     <EditText

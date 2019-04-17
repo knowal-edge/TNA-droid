@@ -6,17 +6,14 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
-import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -26,11 +23,8 @@ import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.knowaledge.tna.Adapters.ActivitiesAdapter;
 import com.knowaledge.tna.CreateActionActivity;
-import com.knowaledge.tna.CreateActivity;
-import com.knowaledge.tna.LoginActivity;
 import com.knowaledge.tna.Models.Activities;
 import com.knowaledge.tna.R;
-import com.knowaledge.tna.SplashActivity;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -53,22 +47,14 @@ public class ActivitiesTabFragment extends Fragment implements SwipeRefreshLayou
     View rootview;
     private Boolean isFabOpen = false;
     private ProgressDialog mProgressDialog;
-    private com.github.clans.fab.FloatingActionButton  fab1, fab2;
+    private com.github.clans.fab.FloatingActionButton  fab1;
     private Animation fab_open, fab_close, rotate_forward, rotate_backward;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         rootview = inflater.inflate(R.layout.tab_activities, container, false);
-        fab1 = rootview.findViewById(R.id.material_design_floating_action_menu_item1);
-        fab2 = rootview.findViewById(R.id.material_design_floating_action_menu_item2);
+        fab1 = rootview.findViewById(R.id.fab);
         fab1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                final Intent i = new Intent(getActivity(), CreateActivity.class);
-                startActivity(i);
-            }
-        });
-        fab2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 final Intent j = new Intent(getActivity(), CreateActionActivity.class);

@@ -35,31 +35,25 @@ import static com.knowaledge.tna.Constants.URLs.UPDATEACTIVITY;
 public class editActivityDetailsDialog extends DialogFragment {
 
     public ImageView close;
-    public String leaddays,styleno,activity,tar;
-    private EditText statusEdit,actualDateEdit,RevisedDateEdit,ReasonEdit;
-    private TextView lead,style,act,target;
+    public String aid,styleno,activity;
+    private EditText targetEdit,statusEdit,actualDateEdit,RevisedDateEdit,ReasonEdit;
+    private TextView lead,style,act;
     private Button submit;
     ProgressDialog loading;
-    public static final String KEY_JOB_ID = "job_id";
-    public static final String KEY_APPLIED_PROFILE = "applied_profile";
-    public static final String KEY_USERNAME_NEW = "username";
-    public static final String KEY_USER_EMAIL = "user_email";
-    public static final String KEY_REFERAL = "referal_email";
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.edit_activity_dialog, container,
                 false);
-
+        targetEdit=rootView.findViewById(R.id.targetDate);
         statusEdit=rootView.findViewById(R.id.status);
         actualDateEdit=rootView.findViewById(R.id.actualdate);
         RevisedDateEdit=rootView.findViewById(R.id.reviseddate);
         ReasonEdit=rootView.findViewById(R.id.reason);
-        lead = (TextView)rootView.findViewById(R.id.leaddays);
         style = (TextView)rootView.findViewById(R.id.styleno);
         act = rootView.findViewById(R.id.activity);
-        target=rootView.findViewById(R.id.targatedate);
         close = rootView.findViewById(R.id.btn_cancel);
         close.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -71,32 +65,17 @@ public class editActivityDetailsDialog extends DialogFragment {
 
         Bundle bundle = getArguments();
         if (bundle != null) {
-             leaddays = bundle.getString("leaddays");
+             aid = bundle.getString("aid");
              styleno = bundle.getString("styleno");
             activity = bundle.getString("activity");
-            tar = bundle.getString("targetdate");
-            lead.setText(leaddays);
             style.setText(styleno);
             act.setText(activity);
-            target.setText(tar);
-
         }
 
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (v == submit) {
-                    if (statusEdit.getText().toString().equals("") && actualDateEdit.getText().toString().equals("") && RevisedDateEdit.getText().toString().equals("") && ReasonEdit.getText().toString().equals("")){
-                        statusEdit.setError("Status cannot be empty");
-                        actualDateEdit.setError("Actual date cannot be empty");
-                        RevisedDateEdit.setError("Revised date cannot be empty");
-                        ReasonEdit.setError("Reason cannot be empty");
-
-                    }
-
-                    else {
-                        updateActivity();
-                    }}
+                updateActivity();
             }
         });
 
@@ -110,11 +89,12 @@ public class editActivityDetailsDialog extends DialogFragment {
         final String actualDate = actualDateEdit.getText().toString().trim() ;
         final String revisedDate = RevisedDateEdit.getText().toString().trim();
         final String reason = ReasonEdit.getText().toString().trim();
+        final String target_date = targetEdit.getText().toString().trim();
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(getActivity());
         final String username =  preferences.getString("username", "");
-        System.out.println("--sdfdsds"+username);
+        System.out.println("--sdfdsds"+aid);
 
-        StringRequest stringRequest = new StringRequest(Request.Method.PUT,UPDATEACTIVITY+styleno,
+        StringRequest stringRequest = new StringRequest(Request.Method.PUT,UPDATEACTIVITY+username+"/"+styleno+"/"+aid,
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
@@ -135,6 +115,7 @@ public class editActivityDetailsDialog extends DialogFragment {
             @Override
             protected Map<String, String> getParams() {
                 Map<String, String> params = new HashMap<String, String>();
+                params.put("target_date", target_date);
                 params.put("complete_status", status);
                 params.put("actual_date", actualDate);
                 params.put("revised_date", revisedDate);

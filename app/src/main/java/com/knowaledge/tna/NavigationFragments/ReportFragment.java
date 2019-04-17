@@ -33,7 +33,7 @@ public class ReportFragment extends Fragment {
     private View rootview;
     private WebView webview;
     private ProgressBar pbar;
-    EditText styleNoEditText,emailEditText;
+    EditText styleNoEditText,emailEditText,usernameEditText;
     private Button submitButton;
     ProgressDialog loading;
 
@@ -42,14 +42,16 @@ public class ReportFragment extends Fragment {
         rootview = inflater.inflate(R.layout.nav_activity_reports, container, false);
         styleNoEditText=rootview.findViewById(R.id.styleno);
         emailEditText=rootview.findViewById(R.id.email);
+        usernameEditText=rootview.findViewById(R.id.username);
         submitButton=rootview.findViewById(R.id.submit);
         submitButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (v == submitButton) {
-                    if (emailEditText.getText().toString().equals("") && styleNoEditText.getText().toString().equals("")){
+                    if (emailEditText.getText().toString().equals("") && styleNoEditText.getText().toString().equals("") && usernameEditText.getText().toString().equals("")){
                         emailEditText.setError("Email cannot be empty");
                         styleNoEditText.setError("Styleno cannot be empty");
+                        usernameEditText.setError("Username cannot be empty");
                     }
 
                     else {
@@ -62,8 +64,7 @@ public class ReportFragment extends Fragment {
     }
     private void generateReport() {
             loading = ProgressDialog.show(getActivity(), "Please wait...", "Loading...", false, false);
-        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(getActivity());
-        final String username =  preferences.getString("username", "");
+        final String username =  usernameEditText.getText().toString().trim() ;
         final String styleNo = styleNoEditText.getText().toString().trim() ;
         final String email = emailEditText.getText().toString().trim();
         String url = REPORTACTIVITY +username+"/"+styleNo+"/"+email ;
@@ -73,7 +74,8 @@ public class ReportFragment extends Fragment {
                     loading.dismiss();
                     emailEditText.setText("");
                     styleNoEditText.setText("");
-              Toast.makeText(getActivity(), "Report sent to your mail", Toast.LENGTH_LONG).show();
+                    usernameEditText.setText("");
+              Toast.makeText(getActivity(), "Report sent to your requested mail", Toast.LENGTH_LONG).show();
 //
                 }
             },
@@ -84,6 +86,7 @@ public class ReportFragment extends Fragment {
                             loading.dismiss();
                             emailEditText.setText("");
                             styleNoEditText.setText("");
+                            usernameEditText.setText("");
 
                         }
                     });

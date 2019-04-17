@@ -102,7 +102,8 @@ public class ActivitiesResult extends AppCompatActivity implements SwipeRefreshL
                                 System.out.println("s-sdfds"+obj);
 
                                 activityList.add(new ActivitiesList(
-                                        obj.getString("activity")
+                                        obj.getString("activity"),
+                                        obj.getString("aid")
                                 ));
 
 

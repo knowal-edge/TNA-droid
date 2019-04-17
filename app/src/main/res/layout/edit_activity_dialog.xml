@@ -70,25 +70,6 @@
                 android:layout_height="wrap_content">
 
                 <TextView
-                    android:layout_width="wrap_content"
-                    android:textSize="16sp"
-                    android:id="@+id/leaddaysHead"
-                    android:layout_margin="@dimen/activity_horizontal_margin"
-                    android:textColor="@color/text_color_job"
-                    android:text="Lead Days: "
-                    android:layout_height="wrap_content" />
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:textSize="12sp"
-                    android:id="@+id/leaddays"
-                    android:layout_toRightOf="@+id/leaddaysHead"
-                    android:layout_toEndOf="@+id/leaddaysHead"
-                    android:text="sdvsvsvsvs"
-                    android:layout_marginTop="@dimen/activity_horizontal_margin"
-                    android:layout_marginBottom="@dimen/activity_horizontal_margin"
-                    android:textColor="@color/text_color_job"
-                    android:layout_height="wrap_content" />
-                <TextView
                 android:layout_width="wrap_content"
                 android:textSize="16sp"
                 android:layout_below="@+id/leaddaysHead"
@@ -110,33 +91,30 @@
                     android:textColor="@color/text_color_job"
                     android:layout_height="wrap_content" />
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:textSize="16sp"
-                    android:layout_below="@+id/activityHead"
-                    android:id="@+id/targetdateHead"
-                    android:layout_margin="@dimen/activity_horizontal_margin"
-                    android:textColor="@color/text_color_job"
-                    android:text="Target Date: "
-                    android:layout_height="wrap_content" />
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:textSize="16sp"
-                    android:id="@+id/targatedate"
-                    android:layout_toRightOf="@+id/targetdateHead"
-                    android:layout_toEndOf="@+id/targetdateHead"
-                    android:text="sdvsvsvsvs"
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/targetDateHead"
                     android:layout_below="@+id/activity"
-                    android:layout_marginTop="@dimen/activity_horizontal_margin"
-                    android:layout_marginBottom="@dimen/activity_horizontal_margin"
-                    android:textColor="@color/text_color_job"
-                    android:layout_height="wrap_content" />
+                    >
+
+                    <EditText
+                        android:id="@+id/targetDate"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Target Date(dd-mm-yyyy)"
+                        android:layout_margin="@dimen/activity_horizontal_margin"
+                        android:inputType="text"
+                        android:maxLines="1"
+                        android:singleLine="true"/>
+
+                </android.support.design.widget.TextInputLayout>
 
                 <android.support.design.widget.TextInputLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:id="@+id/statussection"
-                    android:layout_below="@+id/targetdateHead"
+                    android:layout_below="@+id/targetDateHead"
                     >
 
                     <EditText

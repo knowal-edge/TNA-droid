@@ -148,8 +148,7 @@ public class CreateActionActivity extends AppCompatActivity implements AdapterVi
     @Override
     public void onItemSelected(AdapterView<?> arg0, View arg1, int position, long id) {
         lead_days = days[position].toString();
-        Toast.makeText(getApplicationContext(),days[position] , Toast.LENGTH_LONG).show();
-    }
+       }
     @Override
     public void onNothingSelected(AdapterView<?> arg0) {
         // TODO Auto-generated method stub

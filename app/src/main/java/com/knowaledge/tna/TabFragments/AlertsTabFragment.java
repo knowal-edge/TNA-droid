@@ -2,21 +2,17 @@ package com.knowaledge.tna.TabFragments;
 
 
 import android.app.ProgressDialog;
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
-import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -25,8 +21,6 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.knowaledge.tna.Adapters.AlertActivitiesAdapter;
-import com.knowaledge.tna.CreateActionActivity;
-import com.knowaledge.tna.CreateActivity;
 import com.knowaledge.tna.Models.AlertActivities;
 import com.knowaledge.tna.R;
 
@@ -38,7 +32,6 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
-import java.util.GregorianCalendar;
 import java.util.List;
 
 import static com.knowaledge.tna.Constants.URLs.SHOWALERTACTIVITY;

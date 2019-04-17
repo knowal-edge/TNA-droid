@@ -3,6 +3,8 @@ package com.knowaledge.tna.Adapters;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 import android.support.v7.widget.PopupMenu;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -66,6 +68,10 @@ public void onBindViewHolder(final ActivitiesViewHolder holder, final int positi
                             Intent intent =  new Intent(mCtx, ActivitiesResult.class);
                             Activities activities1 = activitiesList.get(position);
                             intent.putExtra("StyleNo",activities1.getStyleNo());
+                            SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(mCtx);
+                            SharedPreferences.Editor editor = preferences.edit();
+                            editor.putString("styleNum",activities1.getStyleNo());
+                            editor.apply();
                             mCtx.startActivity(intent);
                           /*  FragmentManager fm1= ((AppCompatActivity)mCtx).getSupportFragmentManager();
                             editActivityDetailsDialog df1 = new editActivityDetailsDialog();
