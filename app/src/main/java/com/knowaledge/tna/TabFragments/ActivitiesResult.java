@@ -9,6 +9,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -51,6 +52,10 @@ public class ActivitiesResult extends AppCompatActivity implements SwipeRefreshL
         setContentView(R.layout.view_activities);
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        if (getSupportActionBar() != null){
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+            getSupportActionBar().setDisplayShowHomeEnabled(true);
+        }
         style = (TextView)findViewById(R.id.styleNo);
         act = (TextView)findViewById(R.id.activity);
 
@@ -82,7 +87,15 @@ public class ActivitiesResult extends AppCompatActivity implements SwipeRefreshL
         activityList.clear();
     }
 
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // handle arrow click here
+        if (item.getItemId() == android.R.id.home) {
+            finish(); // close this activity and return to preview activity (if there is any)
+        }
 
+        return super.onOptionsItemSelected(item);
+    }
 
     private void loadActivities() {
         swipeRefreshLayout.setRefreshing(true);

@@ -17,6 +17,7 @@ import com.knowaledge.tna.DialogFragments.editActivityDetailsDialog;
 import com.knowaledge.tna.Models.ActivitiesList;
 import com.knowaledge.tna.R;
 import com.knowaledge.tna.TabFragments.ActivitiesResult;
+import com.knowaledge.tna.TabFragments.UpdateActivity;
 
 import java.util.List;
 
@@ -47,7 +48,7 @@ public void onBindViewHolder(final ActivitiesViewHolder holder, final int positi
     holder.menuIcon1.setOnClickListener(new View.OnClickListener() {
         @Override
         public void onClick(View view) {
-            Intent intent =  new Intent(mCtx, ActivitiesResult.class);
+            Intent intent =  new Intent(mCtx, UpdateActivity.class);
             ActivitiesList activities1 = activitiesList.get(position);
             intent.putExtra("aid",activities1.getAid());
             SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(mCtx);

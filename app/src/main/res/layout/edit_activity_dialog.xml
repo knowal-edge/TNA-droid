@@ -1,10 +1,22 @@
-<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:orientation="vertical"
-    android:layout_margin="@dimen/activity_horizontal_margin"
-    android:layout_height="match_parent"
-    >
+    android:background="@color/textWhite"
+    android:layout_height="match_parent">
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            app:title="Update Activities"
+            app:theme="@style/ThemeOverlay.AppCompat.Dark"
+            app:titleTextColor="@color/textWhite"
+            android:background="@color/colorPrimary" />
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_margin="@dimen/activity_horizontal_margin"
@@ -28,22 +40,14 @@
             android:layout_marginBottom="@dimen/activity_horizontal_margin"
             android:textColor="@color/text_color_job"
             android:layout_height="wrap_content" />
-        <ImageView
-            android:id="@+id/btn_cancel"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="@dimen/activity_horizontal_margin"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true"
-            android:background="@drawable/ic_close_black_24dp"
-            />
+
         <View
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:id="@+id/sep"
             android:layout_marginRight="@dimen/activity_horizontal_margin"
             android:layout_marginLeft="@dimen/activity_horizontal_margin"
-            android:layout_below="@+id/btn_cancel"
+            android:layout_below="@+id/styleno"
             android:layout_centerHorizontal="true"
             android:background="@color/text_color_job" />
 
@@ -68,34 +72,49 @@
                 android:layout_width="match_parent"
                 android:layout_margin="@dimen/activity_horizontal_margin"
                 android:layout_height="wrap_content">
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/activityHead"
+                    >
 
-                <TextView
-                android:layout_width="wrap_content"
-                android:textSize="16sp"
-                android:layout_below="@+id/leaddaysHead"
-                android:id="@+id/activityHead"
-                android:layout_margin="@dimen/activity_horizontal_margin"
-                android:textColor="@color/text_color_job"
-                android:text="Activity: "
-                android:layout_height="wrap_content" />
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:textSize="16sp"
-                    android:id="@+id/activity"
-                    android:layout_toRightOf="@+id/activityHead"
-                    android:layout_toEndOf="@+id/activityHead"
-                    android:text="sdvsvsvsvs"
-                    android:layout_below="@+id/leaddays"
-                    android:layout_marginTop="@dimen/activity_horizontal_margin"
-                    android:layout_marginBottom="@dimen/activity_horizontal_margin"
-                    android:textColor="@color/text_color_job"
-                    android:layout_height="wrap_content" />
+                    <EditText
+                        android:id="@+id/activity"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Activity"
+                        android:layout_margin="@dimen/activity_horizontal_margin"
+                        android:inputType="text"
+                        android:maxLines="1"
+                        android:singleLine="true"/>
+
+                </android.support.design.widget.TextInputLayout>
+
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/lead_days_Head"
+                    android:layout_below="@+id/activityHead"
+                    >
+
+                    <EditText
+                        android:id="@+id/lead_dys"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Lead Days"
+                        android:layout_margin="@dimen/activity_horizontal_margin"
+                        android:inputType="text"
+                        android:maxLines="1"
+                        android:singleLine="true"/>
+
+                </android.support.design.widget.TextInputLayout>
+
 
                 <android.support.design.widget.TextInputLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:id="@+id/targetDateHead"
-                    android:layout_below="@+id/activity"
+                    android:layout_below="@+id/lead_days_Head"
                     >
 
                     <EditText
@@ -186,19 +205,6 @@
 
                 </android.support.design.widget.TextInputLayout>
 
-                <Button
-                    android:id="@+id/submit"
-                    style="?android:textAppearanceSmall"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="@dimen/activity_horizontal_margin"
-                    android:text="Submit"
-                    android:layout_centerHorizontal="true"
-                    android:background="@drawable/button_background"
-                    android:textStyle="bold"
-                    android:textColor="@color/textWhite"
-                    android:layout_below="@+id/reasonsec"
-                    />
 
 
             </RelativeLayout>
@@ -208,6 +214,17 @@
 
 
 </LinearLayout>
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/submit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        app:elevation="6dp"
+        app:backgroundTint="@color/button"
+        app:pressedTranslationZ="12dp"
+        android:layout_margin="@dimen/activity_horizontal_margin"
+        android:src="@drawable/ic_done_black_24dp" />
+</android.support.design.widget.CoordinatorLayout>
 
 
 
