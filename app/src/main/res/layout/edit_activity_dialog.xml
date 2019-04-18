@@ -72,49 +72,12 @@
                 android:layout_width="match_parent"
                 android:layout_margin="@dimen/activity_horizontal_margin"
                 android:layout_height="wrap_content">
-                <android.support.design.widget.TextInputLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/activityHead"
-                    >
-
-                    <EditText
-                        android:id="@+id/activity"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:hint="Activity"
-                        android:layout_margin="@dimen/activity_horizontal_margin"
-                        android:inputType="text"
-                        android:maxLines="1"
-                        android:singleLine="true"/>
-
-                </android.support.design.widget.TextInputLayout>
-
-                <android.support.design.widget.TextInputLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/lead_days_Head"
-                    android:layout_below="@+id/activityHead"
-                    >
-
-                    <EditText
-                        android:id="@+id/lead_dys"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:hint="Lead Days"
-                        android:layout_margin="@dimen/activity_horizontal_margin"
-                        android:inputType="text"
-                        android:maxLines="1"
-                        android:singleLine="true"/>
-
-                </android.support.design.widget.TextInputLayout>
 
 
                 <android.support.design.widget.TextInputLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:id="@+id/targetDateHead"
-                    android:layout_below="@+id/lead_days_Head"
                     >
 
                     <EditText

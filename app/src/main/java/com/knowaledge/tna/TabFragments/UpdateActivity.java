@@ -38,7 +38,7 @@ public class UpdateActivity extends AppCompatActivity {
 
     public ImageView close;
     public String aid,styleno,activity;
-    private EditText activityEdit,leadEdit,targetEdit,statusEdit,actualDateEdit,RevisedDateEdit,ReasonEdit;
+    private EditText targetEdit,statusEdit,actualDateEdit,RevisedDateEdit,ReasonEdit;
     private TextView lead,style,act;
     private FloatingActionButton submit;
     Toolbar toolbar;
@@ -54,8 +54,6 @@ public class UpdateActivity extends AppCompatActivity {
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
             getSupportActionBar().setDisplayShowHomeEnabled(true);
         }
-        activityEdit=findViewById(R.id.activity);
-        leadEdit=findViewById(R.id.lead_dys);
         targetEdit=findViewById(R.id.targetDate);
         statusEdit=findViewById(R.id.status);
         actualDateEdit=findViewById(R.id.actualdate);
@@ -95,11 +93,9 @@ public class UpdateActivity extends AppCompatActivity {
         final String revisedDate = RevisedDateEdit.getText().toString().trim();
         final String reason = ReasonEdit.getText().toString().trim();
         final String target_date = targetEdit.getText().toString().trim();
-        final String activityyy = activityEdit.getText().toString().trim();
-        final String leeaddays = leadEdit.getText().toString().trim();
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
         final String username =  preferences.getString("username", "");
-        System.out.println("--sdfdsds"+aid);
+
 
         StringRequest stringRequest = new StringRequest(Request.Method.PUT,UPDATEACTIVITY+username+"/"+styleno+"/"+aid,
                 new Response.Listener<String>() {
@@ -122,9 +118,7 @@ public class UpdateActivity extends AppCompatActivity {
             @Override
             protected Map<String, String> getParams() {
                 Map<String, String> params = new HashMap<String, String>();
-                params.put("activity", activityyy);
-                params.put("target_date", leeaddays);
-                params.put("lead_days", target_date);
+                params.put("target_date", target_date);
                 params.put("complete_status", status);
                 params.put("actual_date", actualDate);
                 params.put("revised_date", revisedDate);
