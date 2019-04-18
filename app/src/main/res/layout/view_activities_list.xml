@@ -26,7 +26,7 @@
                 android:id="@+id/menus"
                 android:layout_alignParentRight="true"
                 android:layout_alignParentEnd="true"
-                android:layout_margin="@dimen/activity_horizontal_margin"
+                android:layout_margin="10dp"
                 android:background="@drawable/ic_edit_black_24dp"
                 />
 
@@ -36,18 +36,18 @@
                 android:layout_height="wrap_content"
                 android:text="Activity: "
                 android:textColor="@color/feedback_questio_color"
-               android:layout_margin="@dimen/activity_horizontal_margin"
+               android:layout_margin="10dp"
                 />
 
             <TextView
-                android:layout_toRightOf="@+id/activityhead"
-                android:layout_toEndOf="@+id/activityhead"
+                android:layout_below="@+id/menus"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/activity"
+                android:textSize="16sp"
                 android:textColor="@color/feedback_questio_color"
                 android:text="stitching the blazer"
-                android:layout_margin="@dimen/activity_horizontal_margin"
+                android:layout_margin="10dp"
                 />
 
 
