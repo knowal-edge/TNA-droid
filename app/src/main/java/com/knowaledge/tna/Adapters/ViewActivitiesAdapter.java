@@ -54,6 +54,7 @@ public void onBindViewHolder(final ActivitiesViewHolder holder, final int positi
             SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(mCtx);
             intent.putExtra("styleno",preferences.getString("styleNum", ""));
             intent.putExtra("activity",activities1.getActivity());
+            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             mCtx.startActivity(intent);
            }
     });
